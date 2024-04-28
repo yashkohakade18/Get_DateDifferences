@@ -10,6 +10,22 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <style>
+        body {
+    background-color: #FFDEE9;
+    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+    min-height: 100vh;
+}
+
+.date-container {
+    width: 600px;
+}
+
+.btn {
+    background-color: #FFDEE9;
+    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+}
+    </style>
 </head>
 <body>
     <div
@@ -51,6 +67,36 @@
       </button>
     </div>
   </div>
+  <script>
+    function calculate() {
+      const firstDate = document.getElementById("date1").value;
+      const secondDate = document.getElementById("date2").value;
+
+      const date_1 = new Date(firstDate);
+      const date_2 = new Date(secondDate);
+
+      const difference = Math.abs(date_2 - date_1);
+
+      const days = Math.round(difference / (1000 * 60 * 60 * 24));
+
+      const dayElement = document.getElementById("result");
+      dayElement.innerText = ` Date Differece : ${days}  ${
+        days > 1 ? "days" : "day"
+      }.`;
+    }
+
+    function reset() {
+      document.getElementById("date1").value = "";
+      document.getElementById("date2").value = "";
+      document.getElementById("result").innerText = "Date Difference : ";
+    }
+  </script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
 
 </body>
 </html>
